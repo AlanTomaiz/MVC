@@ -1,0 +1,623 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --color-primary: #7380ec;
+  --color-danger: #ff7782;
+  --color-success: #41f1b6;
+  --color-warning: #ffbb55;
+  --color-white: #fff;
+  --color-info: #7d8da1;
+  --color-dark: #363949;
+  --color-light: rgba(132, 139, 200, 0.18);
+  --color-background: #f5f5f5;
+
+  --color-primary-variant: #111e88;
+  --color-dark-variant: #677483;
+
+  --padding: 1.2rem;
+  --card-padding: 1.8rem;
+  --card-border-radius: 2rem;
+  --border-radius-1: 0.4rem;
+  --border-radius-2: 0.8rem;
+  --border-radius-3: 1.2rem;
+
+  --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.dark-mode {
+  --color-dark: #edeffd;
+  --color-white: #262b2e;
+  --color-dark-variant: #a3bdcc;
+  --color-light: rgba(0, 0, 0, 0.4);
+  --color-background: #181a1e;
+  --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  outline: none;
+  list-style: none;
+  appearance: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+
+  color: var(--color-dark);
+  font-size: 1.4rem;
+  font-family: "Poppins", sans-serif;
+  background: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  overflow-x: hidden;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 100, "GRAD" 0, "opsz" 48;
+}
+
+a {
+  color: var(--color-dark);
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+h1 {
+  font-weight: 800;
+  font-size: 2.4rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+}
+
+h5 {
+  font-size: 1.07rem;
+}
+
+small {
+  font-size: 1rem;
+}
+
+.profile-photo {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.text-muted {
+  color: var(--color-info);
+}
+
+p {
+  color: var(--color-dark-variant);
+}
+
+b {
+  color: var(--color-dark);
+}
+
+.primary {
+  color: var(--color-primary);
+}
+
+.danger {
+  color: var(--color-danger);
+}
+
+.success {
+  color: var(--color-success);
+}
+
+.warning {
+  color: var(--color-warning);
+}
+
+.container {
+  display: flex;
+  margin-left: 220px;
+}
+
+/* === ASIDE === */
+aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 220px;
+  height: 100vh;
+  background: var(--color-white);
+  transition: all 0.4s ease;
+}
+
+aside .topo {
+  padding: 24px;
+}
+
+aside .topo .clone-menu {
+  display: none;
+}
+
+aside .sidebar {
+  position: relative;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+}
+
+aside h3 {
+  font-weight: 500;
+}
+
+aside .sidebar a {
+  position: relative;
+
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  height: 5.8rem;
+  color: var(--color-info);
+  padding-left: 2rem;
+  transition: all 0.4s ease;
+}
+
+aside .sidebar a span {
+  font-size: 3rem;
+}
+
+aside .sidebar a:last-child {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+aside .sidebar a:hover,
+aside .sidebar a.active {
+  color: var(--color-primary);
+  background: var(--color-light);
+}
+
+aside .sidebar a.active:before {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--color-primary);
+}
+
+aside .sidebar .counter {
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+  color: var(--color-white);
+  background-color: var(--color-danger);
+  padding: 2px 10px;
+  border-radius: var(--border-radius-1);
+}
+
+/* === MAIN === */
+main {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding: 24px 24px 16px;
+}
+
+main .page-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+main .page-header h1 {
+  color: var(--color-primary);
+}
+
+main .page-header h3 {
+  font-weight: 300;
+  color: var(--color-info);
+}
+
+main .page-header .actions {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 3rem;
+}
+
+main .page-header .actions button {
+  display: none;
+}
+
+main .page-header .actions .theme-toggler span {
+  padding: 0.5rem;
+  background: var(--color-light);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dark-mode main .page-header .actions .theme-toggler span {
+  background: var(--color-primary);
+  font-variation-settings: "FILL" 1, "wght" 100, "GRAD" 0, "opsz" 48;
+}
+
+main .page-header .actions .profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    margin-left: 7rem;
+  }
+
+  aside {
+    width: 7rem;
+  }
+
+  aside .sidebar h3 {
+    display: none;
+  }
+
+  aside .sidebar .counter {
+    transform: translate(-80%, 55%);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    margin-left: 0;
+  }
+
+  aside {
+    width: 220px;
+    box-shadow: 1rem 3rem 4rem var(--color-light);
+    left: calc(-100%);
+    z-index: 10;
+  }
+
+  aside .sidebar h3 {
+    display: inline;
+  }
+
+  aside .topo {
+    position: relative;
+    padding: 24px 10px;
+    padding-right: 80px;
+  }
+
+  aside .topo .clone-menu {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    display: block;
+    cursor: pointer;
+  }
+
+  aside .topo .clone-menu span {
+    font-size: 4rem;
+  }
+
+  aside .sidebar .counter {
+    transform: translate(0, 0);
+  }
+
+  main {
+    margin-top: 4.6rem;
+  }
+
+  main .page-header .actions {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 6rem;
+    background: var(--color-white);
+    box-shadow: 0 1rem 1rem var(--color-light);
+    padding: 1.6rem;
+    z-index: 5;
+  }
+
+  main .page-header .actions .profile .info {
+    display: none;
+  }
+
+  main .page-header .actions button {
+    position: absolute;
+    left: 1rem;
+
+    display: inline-block;
+    background: transparent;
+    color: var(--color-dark);
+    cursor: pointer;
+  }
+}
+
+/* DASHBOARD */
+#dashboard {
+  display: grid;
+  grid-template-columns: auto 40rem;
+  gap: 1.6rem;
+}
+
+#dashboard .insights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+}
+
+#dashboard .insights .card-box {
+  margin-top: 1rem;
+  padding: var(--card-padding);
+  background: var(--color-white);
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--box-shadow);
+  transition: all 0.4s ease;
+}
+
+#dashboard .insights .card-box:hover {
+  box-shadow: none;
+}
+
+#dashboard .insights .card-box span {
+  color: var(--color-white);
+  background: var(--color-primary);
+  padding: 0.8rem;
+  border-radius: 50%;
+}
+
+#dashboard .insights .card-box.expenses span {
+  background: var(--color-danger);
+}
+
+#dashboard .insights .card-box.income span {
+  background: var(--color-warning);
+}
+
+#dashboard .insights .card-box .middle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#dashboard .insights .card-box h3 {
+  margin: 1 rem 0 0.6rem;
+}
+
+#dashboard .insights .card-box .progress {
+  position: relative;
+
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+}
+
+#dashboard .insights .card-box svg {
+  width: 9rem;
+  height: 9rem;
+}
+
+#dashboard .insights .card-box svg circle {
+  fill: none;
+  stroke: var(--color-primary);
+  stroke-width: 14;
+  stroke-linecap: round;
+  transform: translate(5px, 5px);
+}
+
+#dashboard .insights .card-box.sales svg circle {
+  stroke-dashoffset: -35;
+  stroke-dasharray: 200;
+}
+
+#dashboard .insights .card-box.expenses svg circle {
+  stroke-dashoffset: 20;
+  stroke-dasharray: 80;
+}
+
+#dashboard .insights .card-box.income svg circle {
+  stroke-dashoffset: 35;
+  stroke-dasharray: 110;
+}
+
+#dashboard .insights .card-box .progress .number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+#dashboard .insights .card-box small {
+  margin-top: 1.6rem;
+}
+
+#dashboard .recent-orders {
+  margin-top: 2rem;
+}
+
+#dashboard .recent-orders h2 {
+  margin-bottom: 0.8rem;
+}
+
+#dashboard .recent-orders table {
+  width: 100%;
+  padding: var(--card-padding);
+  background: var(--color-white);
+  border-radius: var(--border-radius-2);
+  box-shadow: var(--box-shadow);
+  transition: all 0.4s ease;
+}
+
+#dashboard .recent-orders table:hover {
+  box-shadow: none;
+}
+
+#dashboard .recent-orders table th {
+  text-align: left;
+}
+
+#dashboard .recent-orders table td {
+  height: 2.8rem;
+  border-bottom: 1px solid var(--color-light);
+  color: var(--color-dark-variant);
+}
+
+#dashboard .recent-orders table td:last-child {
+  text-align: right;
+}
+
+#dashboard .recent-orders table tr:last-child td {
+  border: none;
+}
+
+#dashboard .recent-orders a {
+  display: block;
+  color: var(--color-primary);
+  text-align: center;
+  margin: 1rem auto;
+}
+
+#dashboard .recent-updates h2 {
+  margin-bottom: 0.8rem;
+}
+
+#dashboard .recent-updates .updates {
+  padding: var(--card-padding);
+  background: var(--color-white);
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--box-shadow);
+  transition: all 0.4s ease;
+}
+
+#dashboard .recent-updates .updates:hover {
+  box-shadow: none;
+}
+
+#dashboard .recent-updates .update {
+  display: grid;
+  grid-template-columns: 4rem auto;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+#dashboard .sales-analytics {
+  margin-top: 2rem;
+}
+
+#dashboard .sales-analytics h2 {
+  margin-bottom: 0.8rem;
+}
+
+#dashboard .sales-analytics .item {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+
+  background: var(--color-white);
+  margin-bottom: 1rem;
+  padding: 1.4rem var(--card-padding);
+  border-radius: var(--border-radius-3);
+  box-shadow: var(--box-shadow);
+  transition: all 0.4s ease;
+}
+
+#dashboard .sales-analytics .item:hover {
+  box-shadow: none;
+}
+
+#dashboard .sales-analytics .item .right {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#dashboard .sales-analytics .item span {
+  padding: 1rem;
+  color: var(--color-white);
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+
+#dashboard .sales-analytics .item.offline span {
+  background: var(--color-danger);
+}
+
+#dashboard .sales-analytics .item.custumers span {
+  background: var(--color-warning);
+}
+
+@media screen and (max-width: 1200px) {
+  #dashboard {
+    position: relative;
+  }
+
+  #dashboard .insights {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  #dashboard .recent-orders {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    margin-top: 20rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  #dashboard .recent-orders {
+    position: relative;
+    margin: 3rem 0 0 0;
+  }
+
+  #dashboard .recent-orders tr th,
+  #dashboard .recent-orders tr td {
+    display: none;
+  }
+
+  #dashboard .recent-orders tr th:last-child,
+  #dashboard .recent-orders tr th:first-child,
+  #dashboard .recent-orders tr td:last-child,
+  #dashboard .recent-orders tr td:first-child {
+    display: table-cell;
+  }
+}

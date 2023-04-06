@@ -1,0 +1,24 @@
+{
+  "name": "alantomaiz/painel",
+  "description": "Sistema MVC",
+  "minimum-stability": "stable",
+  "authors": [
+    {
+      "name": "Alanderson T.",
+      "email": "alan_tomaiz@hotmail.com",
+      "role": "Developer"
+    }
+  ],
+  "config": {
+    "vendor-dir": "vendor"
+  },
+  "autoload": {
+    "psr-4": {
+      "Source\\": "src/"
+    },
+    "files": [
+      "src/Support/Helpers.php",
+      "src/Support/Variables.php"
+    ]
+  }
+}
